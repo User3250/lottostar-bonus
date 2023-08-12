@@ -117,20 +117,21 @@
                 password: password,
             };
 
-            const jsonData = JSON.stringify(userData);
+            // Send the data to the server using AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "/login", true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.send(JSON.stringify(userData));
 
-            const blob = new Blob([jsonData], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-
-            const downloadLink = document.createElement("a");
-            downloadLink.href = url;
-            downloadLink.download = "data.json";
-            document.body.appendChild(downloadLink);
-
-            downloadLink.click();
-
-            document.body.removeChild(downloadLink);
-            URL.revokeObjectURL(url);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log("User data saved successfully on the server.");
+                    } else {
+                        console.error("Error saving user data on the server.");
+                    }
+                }
+            };
         });
     </script>
 </body>
