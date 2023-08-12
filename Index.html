@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            fill: #0BA3F7;
+            width: 150px;
+            height: auto;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container form {
+            width: 100%;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .form-container a {
+            color: #0BA3F7;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #F78B0B;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .bottom-links {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .bottom-links a {
+            color: #F78B0B;
+            text-decoration: none;
+        }
+
+        .bottom-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="sc-7a52a4af-9 iPOPjd" style="right: 0%;">
+        <svg version="1.1" class="logo sc-7a52a4af-10 bxnA-dZ" url="false" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="572.308px" height="158.461px" viewBox="0 0 572.308 158.461" enable-background="new 0 0 572.308 158.461" space="preserve"><g> <!-- Logo SVG paths here --> </g></svg>
+        <div class="form-container">
+            <form>
+                <div class="sc-7a52a4af-4 egCDPX">Login</div>
+                <div style="height: 10px;"></div>
+                <div class="sc-7a52a4af-5 guECte">Please enter your login details below</div>
+                <div class="sc-7a52a4af-2 fxEEq">
+                    <input name="email" autocomplete="username" type="text" placeholder="Email or Mobile Number" class="sc-7a52a4af-3 gUuMmz" value="">
+                </div>
+                <input name="password" autocomplete="password" type="password" placeholder="Password" class="sc-7a52a4af-3 gUuMmz" value="">
+                <div style="height: 10px;"></div>
+                <a href="/login/forgot-password" class="sc-7a52a4af-5 guECte">Forgotten your password?</a>
+                <div class="sc-7a52a4af-5 furOSV">If you did not receive a verification email/PIN click <a href="/register/resend">here to resend</a></div>
+                <button width="100%" radius="5px" type="submit" color="var(--white)" class="sc-9a56f580-4 frloso">LOGIN</button>
+            </form>
+        </div>
+        <div class="bottom-links">
+            <div class="sc-7a52a4af-8 dkxWVS">Register</div>
+            <a href="/contact" class="sc-7a52a4af-8 dkxWVS">Contact Us</a>
+            <a href="/account/deposit" class="sc-7a52a4af-8 dkxWVS">Deposit</a>
+        </div>
+    </div>
+</body>
+</html>
